@@ -28,6 +28,7 @@ This document serves as guidance to the process of creating this app. It uses Ne
 ### Tailwind CSS Stuff:
 - Images:
   - When using `layout="fill"`, the Image will fill the entire parent. So I need to indicate in the div parent a `className="relative"` and also set a default height and width as `className="relative h-16 w-16"`
+  - When doing the scroll image, we don't want images to overflow the size of the screen, so we use: `<div className="flex space-x-3 overflow-scroll">` and also, to hide the slide bar, we use the plugin tailwind-scrollbar .
 
 - Aligning:
   - By default, elements align as blocks. We need to use `className="flex"` in the container that has the elements.
