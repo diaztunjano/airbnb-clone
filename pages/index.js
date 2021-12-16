@@ -78,8 +78,6 @@ export async function getStaticProps() {
 
   const { data: cardsData } = await axios(cards_options);
 
-  console.log(cardsData);
-
   return {
     props: {
       exploreData,
@@ -87,3 +85,4 @@ export async function getStaticProps() {
     },
   };
 }
+ 
