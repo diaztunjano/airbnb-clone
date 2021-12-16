@@ -27,7 +27,6 @@ This document serves as guidance to the process of creating this app. It uses Ne
   
 - Static Rendering: When including `async function getStaticProps()`, it tells Next.js to do server rendering. Normally, User get the React Bundle when entering the website. Next.js introduces a server between the user and React. First, the user makes a request to the Next.js server and it sends only the components that the website needs. With Server Side Rendering, everytime the user requests a site, it reloads from zero but it is still faster than regular React bundle. 
   
-
 ***
 
 ### Tailwind CSS Stuff:
@@ -37,7 +36,11 @@ This document serves as guidance to the process of creating this app. It uses Ne
 
 - Aligning:
   - By default, elements align as blocks. We need to use `className="flex"` in the container that has the elements.
+  - When using `className="flex-grow"` the div takes as much space as possible.
 
 - Responsive:
   - Grids:
     - In order to change the amount of columns a div has, we use dynamic format based on the screen size. For example, `className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"` says that for mobile(1), for small screens(2), for larger (3) and xl(4).
+
+- Calendar:
+  - React-date-range: Used DateRangePicker component from the library. Installation: `npm install --save react-date-range`
