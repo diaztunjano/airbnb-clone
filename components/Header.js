@@ -22,13 +22,6 @@ function Header() {
     setSearchInput("");
   };
 
-  const searchInput = () => {
-    // setSearchInput("");
-    console.log(startDate);
-    console.log(endDate);
-    console.log(noOfGuests);
-  };
-
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
@@ -107,7 +100,7 @@ function Header() {
               Cancel
             </button>
             <button
-              onClick={() => searchInput()}
+              
               className="flex-grow text-red-400"
             >
               Search
