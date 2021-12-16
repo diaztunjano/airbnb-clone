@@ -50,3 +50,6 @@ This document serves as guidance to the process of creating this app. It uses Ne
 
 - **Calendar:**
   - React-date-range: Used DateRangePicker component from the library. Installation: `npm install --save react-date-range`
+
+- **Loading Bar:**
+  -Imported from @badrap/bar-of-progress. Used in App.js by importing the Router and listening the events. When the Router starts to change, the loading bar is activated. 

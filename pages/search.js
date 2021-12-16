@@ -24,7 +24,9 @@ function Search({ searchResults }) {
           <p className="text-xs">
             300+ stays - {range} - {noOfGuests} number of guests
           </p>
-          <h1 class="text-3xl font-semibold mt-2 mb-6">Stays in {location}</h1>
+          <h1 className="text-3xl font-semibold mt-2 mb-6">
+            Stays in {location}
+          </h1>
 
           <div
             className="hidden lg:inline-flex mb-5 
