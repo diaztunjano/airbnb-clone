@@ -10,16 +10,30 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/dist/client/router";
 
-function Header() {
+function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
 
   const [noOfGuests, setnoOfGuests] = useState(1);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const router = useRouter();
 
   const resetInput = () => {
     setSearchInput("");
+  };
+
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests,
+      },
+    });
   };
 
   const selectionRange = {
@@ -45,6 +59,7 @@ function Header() {
           layout="fill"
           objectFit="contain"
           objectPosition="left"
+          onClick={() => router.push("/")}
         />
       </div>
       {/* Center  */}
@@ -55,7 +70,7 @@ function Header() {
           className="flex-grow pl-5 bg-transparent outline-none text-sm
            text-gray-600 placeholder-gray-400"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
         <SearchIcon
           className="hidden md:inline-flex h-8 bg-red-400
@@ -99,10 +114,7 @@ function Header() {
             >
               Cancel
             </button>
-            <button
-              
-              className="flex-grow text-red-400"
-            >
+            <button onClick={search} className="flex-grow text-red-400">
               Search
             </button>
           </div>
