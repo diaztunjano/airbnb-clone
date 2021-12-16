@@ -36,6 +36,7 @@ This document serves as guidance to the process of creating this app. It uses Ne
 
 - Aligning:
   - By default, elements align as blocks. We need to use `className="flex"` in the container that has the elements.
+  - When using `className="flex-grow"` the div takes as much space as possible.
 
 - Responsive:
   - Grids:
