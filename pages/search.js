@@ -2,9 +2,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
+const axios = require("axios");
 
-function Search() {
+function Search({ searchResults }) {
   const router = useRouter();
+
+  console.log(searchResults);
   const { location, startDate, endDate, noOfGuests } = router.query;
 
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
@@ -14,7 +17,7 @@ function Search() {
 
   return (
     <div>
-      <Header />
+      <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
@@ -32,6 +35,9 @@ function Search() {
             <p className="button">Rooms and Beds</p>
             <p className="button">More filters</p>
           </div>
+          {/* {searchResults?.map(item =>(
+            
+          ))} */}
         </section>
       </main>
       <Footer />
@@ -40,3 +46,18 @@ function Search() {
 }
 
 export default Search;
+
+export async function getServerSideProps() {
+  const options = {
+    method: "GET",
+    url: "https://jsonkeeper.com/b/5NPS",
+  };
+
+  const { data: searchResults } = await axios(options);
+
+  return {
+    props: {
+      searchResults,
+    },
+  };
+}

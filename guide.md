@@ -27,7 +27,8 @@ This document serves as guidance to the process of creating this app. It uses Ne
   - Instead of using normal html `<img src="image.jpg"/>`, we use Next.js `import Image from "next/image"`; because it optimizes the image into webp format which is smaller and faster to load. We need to create *next.config.js* file and write the source from where the image is being loaded. 
   
 - **Static Rendering:** 
-  - When including `async function getStaticProps()`, it tells Next.js to do server rendering. Normally, User get the React Bundle when entering the website. Next.js introduces a server between the user and React. First, the user makes a request to the Next.js server and it sends only the components that the website needs. With Server Side Rendering, everytime the user requests a site, it reloads from zero but it is still faster than regular React bundle. 
+  - When including `async function getStaticProps()`, it tells Next.js to do server rendering. Normally, User get the React Bundle when entering the website. Next.js introduces a server between the user and React. First, the user makes a request to the Next.js server and it sends only the components that the website needs. With Server Side Rendering, it loads the app before it reaches to the user, so it is faster than regular React bundle. 
+  - With `async function getServerSideProps()`, every single time the user comes to the search page it rebuilds the page per request. With Static, it loads when the page is deployed and when the user logs in it is already loaded. Downside is that maybe this can get outdated quickly, where as with ServerSide it doesn't happen.  
   
 ***
 
