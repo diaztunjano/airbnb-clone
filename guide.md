@@ -17,6 +17,11 @@ This document serves as guidance to the process of creating this app. It uses Ne
 
 ***
 
+## Deployment:
+- Used Vercel to host and deploy the app. Every push to main branch gets a new deploy automatically. 
+
+***
+
 ### NextJS Consideration:
 - IMG Tag: Instead of using normal html `<img src="image.jpg"/>`, we use Next.js `import Image from "next/image"`; because it optimizes the image into webp format which is smaller and faster to load. We need to create *next.config.js* file and write the source from where the image is being loaded. 
   
