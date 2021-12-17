@@ -22,13 +22,34 @@ This document serves as guidance to the process of creating this app. It uses Ne
 
 ***
 
-### NextJS Consideration:
+### NextJS Stuff:
 - **IMG Tag:** 
   - Instead of using normal html `<img src="image.jpg"/>`, we use Next.js `import Image from "next/image"`; because it optimizes the image into webp format which is smaller and faster to load. We need to create *next.config.js* file and write the source from where the image is being loaded. 
   
 - **Static Rendering:** 
   - When including `async function getStaticProps()`, it tells Next.js to do server rendering. Normally, User get the React Bundle when entering the website. Next.js introduces a server between the user and React. First, the user makes a request to the Next.js server and it sends only the components that the website needs. With Server Side Rendering, it loads the app before it reaches to the user, so it is faster than regular React bundle. 
-  - With `async function getServerSideProps()`, every single time the user comes to the search page it rebuilds the page per request. With Static, it loads when the page is deployed and when the user logs in it is already loaded. Downside is that maybe this can get outdated quickly, where as with ServerSide it doesn't happen.  
+  - With `async function getServerSideProps()`, every single time the user comes to the search page it rebuilds the page per request. With Static, it loads when the page is deployed and when the user logs in it is already loaded. Downside is that maybe this can get outdated quickly, where as with ServerSide it doesn't happen.
+    
+- **Env:**
+  - Env variables are in next.config.js
+
+- **React:**
+  - If I have an object like `{
+    width: "100%",
+    height: "100%",
+    latitude: 37.7577,
+    longitude: -122.2423,
+    zoom: 11,
+  }`, by using `{...viewport}` I am *desempaquetando* the object for it to be as `width="100%", height="100%", latitude=37.7577` etc.
+  
+***
+
+### Map Implementation:
+- **Mapbox:**
+  - Using react-map-gl. We need to get the Style URL and Access Token from Mapbox. 
+  - To Allow movement through the map, I need to have a setState() and change it with onViewportChange().
+  - Geolib allows to center the map in the average of all the locations I provided.   
+ 
   
 ***
 
