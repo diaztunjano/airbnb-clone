@@ -1,12 +1,5 @@
 import Image from "next/image";
-import {
-  SearchIcon,
-  GlobeAltIcon,
-  UserCircleIcon,
-  UsersIcon,
-  MenuIcon,
-  StarIcon,
-} from "@heroicons/react/solid";
+import { StarIcon } from "@heroicons/react/solid";
 import { HeartIcon } from "@heroicons/react/outline";
 
 function InfoCard({ img, location, title, description, star, price, total }) {
